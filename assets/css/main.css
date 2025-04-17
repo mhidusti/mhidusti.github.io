@@ -69,7 +69,7 @@ body {
 	--tj-theme-secondary: #1c0a02;      /* تم تیره‌ی مکمل */
 
 	--tj-theme-accent-1: #121212;
-	--tj-theme-accent-2: #1a1a1a;
+	--tj-theme-accent-2: #000000;
 	--tj-grey-1: #747779;
 	--tj-grey-2: #d9d9d9;
 	--tj-grey-3: #dddddd;
@@ -80,8 +80,8 @@ body {
 	--tj-bg-2: #0d0d0d;
 	--tj-bg-3: #111111;
 	--tj-bg-4: #161616;
-	--tj-border: #1b2227;
-	--tj-border1: #2a343c;
+	--tj-border: #080808;
+	--tj-border1: #000000;
 	/* ----------------------------------
    @font weight declaration
   ------------------------------------ */
