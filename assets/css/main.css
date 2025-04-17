@@ -1101,8 +1101,11 @@ body.loaded {
 }
 
 .hero-image-box {
-	position: relative;
+    position: relative;
+    width: 100%; /* اندازه‌ای که می‌خواهید */
+    max-width: none; /* یا max-width: 100% برای نمایش کامل تصویر */
 }
+
 
 .hero-image-box:before {
 	content: "";
