@@ -1091,6 +1091,8 @@ body.loaded {
 	-webkit-transition: 0.3s;
 	-o-transition: 0.3s;
 	transition: 0.3s;
+	width: 100%; /* یا درصد دلخواه */
+    height: auto; /* نسبت ابعاد حفظ بشه */
 }
 
 .hero-image-box img:hover {
