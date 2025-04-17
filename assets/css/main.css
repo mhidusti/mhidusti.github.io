@@ -1081,6 +1081,8 @@ body.loaded {
 	font-size: 17px;
 }
 .hero-image-box img {
+	width: 280px; /* می‌تونی مقدار رو بیشتر یا کمتر کنی */
+	max-width: 100%;
 	border-radius: 38px;
 	-webkit-transform: rotate(4.29deg);
 	-ms-transform: rotate(4.29deg);
@@ -1091,6 +1093,7 @@ body.loaded {
 	-o-transition: 0.3s;
 	transition: 0.3s;
 }
+
 
 .hero-image-box img:hover {
 	border: 2px solid var(--tj-theme-primary);
