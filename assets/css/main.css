@@ -62,11 +62,12 @@ body {
 	--tj-black4: #585859;
 	--tj-heading-primary: #102039;
 	--tj-heading-secondary: #ea1826;
-	--tj-theme-primary: #8750f7;
-	--tj-theme-primary-1: #2400ff;
-	--tj-theme-primary-2: #9b8dff;
-	--tj-theme-primary-3: #4654f9;
-	--tj-theme-secondary: #2a1454;
+	--tj-theme-primary: #FC5C04;        /* نارنجی اصلی */
+	--tj-theme-primary-1: #c44a03;      /* ورژن تیره‌تر */
+	--tj-theme-primary-2: #ff8540;      /* ورژن روشن‌تر */
+	--tj-theme-primary-3: #ff9860;      /* برای هاور یا گرادیانت */
+	--tj-theme-secondary: #1c0a02;      /* تم تیره‌ی مکمل */
+
 	--tj-theme-accent-1: #0f0715;
 	--tj-theme-accent-2: #140c1c;
 	--tj-grey-1: #747779;
@@ -1081,8 +1082,6 @@ body.loaded {
 	font-size: 17px;
 }
 .hero-image-box img {
-	width: 280px; /* می‌تونی مقدار رو بیشتر یا کمتر کنی */
-	max-width: 100%;
 	border-radius: 38px;
 	-webkit-transform: rotate(4.29deg);
 	-ms-transform: rotate(4.29deg);
@@ -1093,7 +1092,6 @@ body.loaded {
 	-o-transition: 0.3s;
 	transition: 0.3s;
 }
-
 
 .hero-image-box img:hover {
 	border: 2px solid var(--tj-theme-primary);
