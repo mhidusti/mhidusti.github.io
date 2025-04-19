@@ -582,6 +582,7 @@ body.loaded {
 	letter-spacing: 0px;
 	text-transform: uppercase;
 	z-index: 20;
+	color: var(--tj-theme-primary);
 }
 
 .load-text span {
