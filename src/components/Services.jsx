@@ -10,7 +10,7 @@ export default function Services() {
               <h2 className="section-title wow fadeInUp" data-wow-delay=".3s">
                 Skills
               </h2>
-              <p className="wow fadeInUp" data-wow-delay=".4s">
+              <p className="wow fadeInUp" data-wow-delay=".4s" >
                 I have hands-on experience in multiple design and development tools. 
                 My focus is on creating clean, efficient, and visually appealing products that deliver a great user experience.
               </p>
