@@ -1,85 +1,95 @@
-import React from 'react';
+// components/Portfolio.jsx
+import React from "react";
 
 export default function Portfolio() {
   return (
-    <>
-<section className="works-section" id="works-section">
-         <div className="container">
-            <div className="row">
-               <div className="col-12">
-                  <div className="section-header style-2">
-                     <h2 className="section-title wow fadeInUp" data-wow-delay=".4s">تحصیلات و تجربه کاری</h2>
-                  </div>
-               </div>
+    <section className="portfolio-section" id="works-section">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <div className="section-header text-center">
+              <h2 className="section-title wow fadeInUp" data-wow-delay=".3s">
+                My Recent Works
+              </h2>
+              <p className="wow fadeInUp" data-wow-delay=".4s">
+                We put your ideas and thus your wishes in the form of a unique web project that inspires you and your customers.
+              </p>
             </div>
-            <div className="row">
-               <div className="col-12">
-                  <div className="works-content-area wow fadeInUp" data-wow-delay=".8s">
-                     <div className="works-content-item">
-                        <h6 className="title">آموزش و پرورش</h6>
-                        <div className="works-content-box">
-                           <div className="works-item">
-                              <h5 className="title">کارشناسی در طراحی</h5>
-                              <h6 className="sub-title">طراح محصول</h6>
-                              <span>حضوریافته در -1403</span>
-                           </div>
-                           <div className="works-item">
-                              <h5 className="title"> طراحی مدرسهUX/UI </h5>
-                              <h6 className="sub-title">طراح محصول</h6>
-                              <span>فروردین 1389 - حضوریافته در</span>
-                           </div>
-                        </div>
-                     </div>
-                     <div className="works-content-item">
-                        <h6 className="title">تجربه کنید</h6>
-                        <div className="works-content-box">
-                           <div className="works-item">
-                              <h5 className="title">شرکت پگاه</h5>
-                              <h6 className="sub-title">طراح محصول</h6>
-                              <span>سال 1399 - برگزار شده در</span>
-                           </div>
-                           <div className="works-item">
-                              <h5 className="title">انور استدیو</h5>
-                              <h6 className="sub-title">طراح محصول</h6>
-                              <span>مهر1400 - حضور یافته در</span>
-                           </div>
-                           <div className="works-item">
-                              <h5 className="title">توزیع کننده TOKO</h5>
-                              <h6 className="sub-title">طراح محصول</h6>
-                              <span>حضور یافته در - فروردین1401</span>
-                           </div>
-                           <div className="works-item">
-                              <h5 className="title">ساکو</h5>
-                              <h6 className="sub-title">طراح محصول</h6>
-                              <span>حضور یافته در - فروردین1401</span>
-                           </div>
-                        </div>
-                     </div>
-                     <div className="works-content-item">
-                        <h6 className="title">نقش های گذشته</h6>
-                        <div className="works-content-box">
-                           <div className="works-item">
-                              <h5 className="title">شرکت پگاه</h5>
-                              <h6 className="sub-title">طراح محصول</h6>
-                              <span>حضور یافته در - فروردین1401</span>
-                           </div>
-                           <div className="works-item">
-                              <h5 className="title">انور استدیو</h5>
-                              <h6 className="sub-title">طراح محصول</h6>
-                              <span>حضور یافته در - فروردین1401</span>
-                           </div>
-                           <div className="works-item">
-                              <h5 className="title">توزیع کننده TOKO</h5>
-                              <h6 className="sub-title">طراح محصول</h6>
-                              <span>حضور یافته در - فروردین1401</span>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-12">
+            <div className="portfolio-filter text-center wow fadeInUp" data-wow-delay=".5s">
+              <div className="button-group filter-button-group">
+                <button data-filter="*" className="active">All</button>
+                <button data-filter=".uxui">UX/UI</button>
+                <button data-filter=".branding">Branding</button>
+                <button data-filter=".mobile-app">Apps</button>
+                <div className="active-bg"></div>
+              </div>
             </div>
-         </div>
-      </section>
-    </>
+
+            <div className="portfolio-box wow fadeInUp" data-wow-delay=".6s">
+              <div className="portfolio-sizer"></div>
+              <div className="gutter-sizer"></div>
+
+              {/* Portfolio Item 1 */}
+              <div className="portfolio-item branding">
+                <div className="image-box">
+                  <img src="/assets/img/portfolio/2.jpg" alt="Deloitte project" />
+                </div>
+                <div className="content-box">
+                  <h3 className="portfolio-title">Deloitte</h3>
+                  <p>Project was about precision and information.</p>
+                  <i className="flaticon-up-right-arrow"></i>
+                  <button data-mfp-src="#portfolio-wrapper" className="portfolio-link modal-popup" />
+                </div>
+              </div>
+
+              {/* Portfolio Item 2 */}
+              <div className="portfolio-item uxui">
+                <div className="image-box">
+                  <img src="/assets/img/portfolio/1.jpg" alt="New Age project" />
+                </div>
+                <div className="content-box">
+                  <h3 className="portfolio-title">New Age</h3>
+                  <p>Project was about precision and information.</p>
+                  <i className="flaticon-up-right-arrow"></i>
+                  <button data-mfp-src="#portfolio-wrapper" className="portfolio-link modal-popup" />
+                </div>
+              </div>
+
+              {/* Portfolio Item 3 */}
+              <div className="portfolio-item mobile-app">
+                <div className="image-box">
+                  <img src="/assets/img/portfolio/3.jpg" alt="Sebastian project" />
+                </div>
+                <div className="content-box">
+                  <h3 className="portfolio-title">Sebastian</h3>
+                  <p>Project was about precision and information.</p>
+                  <i className="flaticon-up-right-arrow"></i>
+                  <button data-mfp-src="#portfolio-wrapper" className="portfolio-link modal-popup" />
+                </div>
+              </div>
+
+              {/* Portfolio Item 4 */}
+              <div className="portfolio-item branding">
+                <div className="image-box">
+                  <img src="/assets/img/portfolio/4.jpg" alt="Mochnix project" />
+                </div>
+                <div className="content-box">
+                  <h3 className="portfolio-title">Mochnix</h3>
+                  <p>Project was about precision and information.</p>
+                  <i className="flaticon-up-right-arrow"></i>
+                  <button data-mfp-src="#portfolio-wrapper" className="portfolio-link modal-popup" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

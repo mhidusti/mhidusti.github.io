@@ -1,135 +1,61 @@
 import React from "react";
 
-const HeroSection = () => {
+export default function HeroSection() {
   return (
-    <main className="site-content" id="content">
-      {/* HERO SECTION START */}
-      <section className="hero-section d-flex align-items-center" id="intro">
-        <div className="intro_text">
-          <svg viewBox="0 0 1320 300">
-            <text x="50%" y="50%" textAnchor="middle">
-              HI
-            </text>
-          </svg>
-        </div>
+    <section className="hero-section style-2 d-flex align-items-center" id="intro">
+      <div className="container">
+        <div className="row align-items-center">
+          {/* Left Column - Text Content */}
+          <div className="col-lg-6">
+            <div className="hero-content-box wow fadeInUp" data-wow-delay=".3s">
+              <h1 className="hero-title">
+                I'm <span>Gerold</span>, <br /> a Web Designer & Developer
+              </h1>
+              <p className="lead">
+                I love creating beautiful and user-friendly interfaces, and I have
+                over 5 years of experience in web design and development.
+              </p>
 
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-md-6">
-              <div className="hero-content-box">
-                <span className="hero-sub-title">I am Gerold</span>
-                <h1 className="hero-title">
-                  Web Developer +<br />UX Designer
-                </h1>
+              <div className="button-box d-flex flex-wrap align-items-center">
+                <a href="#contact-section" className="tj-btn-primary-2">
+                  Contact Me
+                  <span className="icon_box">
+                    <i className="fa-regular fa-arrow-right icon_first"></i>
+                    <i className="fa-regular fa-arrow-right icon_second"></i>
+                  </span>
+                </a>
 
-                <div className="hero-image-box d-md-none text-center">
-                  <img src="assets/img/hero/me.png" alt="" />
-                </div>
-
-                <p className="lead">
-                  I break down complex user experinece problems to create
-                  integritiy focussed solutions that connect billions of people
-                </p>
-
-                <div className="button-box d-flex flex-wrap align-items-center">
-                  <a href="#" className="btn tj-btn-secondary">
-                    Download CV <i className="flaticon-download"></i>
-                  </a>
-                  <ul className="ul-reset social-icons">
-                    <li>
-                      <a href="#">
-                        <i className="fa-brands fa-twitter"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fa-light fa-basketball"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fa-brands fa-linkedin-in"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="fa-brands fa-github"></i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-md-6 d-none d-md-block">
-              <div className="hero-image-box text-center">
-                <img src="assets/img/hero/me.png" alt="" />
+                <ul className="ul-reset social-icons style-2">
+                  <li>
+                    <a href="#"><i className="fa-brands fa-twitter"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i className="fa-brands fa-linkedin-in"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i className="fa-brands fa-github"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i className="fa-brands fa-instagram"></i></a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
 
-          <div className="funfact-area">
-            <div className="row">
-              <div className="col-6 col-lg-3">
-                <div className="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                  <div className="number">
-                    <span className="odometer" data-count="14">
-                      0
-                    </span>
-                  </div>
-                  <div className="text">
-                    Years of <br />Experience
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-6 col-lg-3">
-                <div className="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                  <div className="number">
-                    <span className="odometer" data-count="50">
-                      0
-                    </span>
-                    +
-                  </div>
-                  <div className="text">
-                    Project <br />Completed
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-6 col-lg-3">
-                <div className="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                  <div className="number">
-                    <span className="odometer" data-count="1.5">
-                      0
-                    </span>
-                    K
-                  </div>
-                  <div className="text">
-                    Happy <br />Clients
-                  </div>
-                </div>
-              </div>
-
-              <div className="col-6 col-lg-3">
-                <div className="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
-                  <div className="number">
-                    <span className="odometer" data-count="14">
-                      0
-                    </span>
-                  </div>
-                  <div className="text">
-                    Years of <br />Experience
-                  </div>
-                </div>
-              </div>
+          {/* Right Column - Image */}
+          <div className="col-lg-6 text-center">
+            <div className="hero-image-box wow fadeInUp" data-wow-delay=".5s">
+              {/* ✅ Images load directly from public/assets/... */}
+              <img
+                src="/assets/img/hero/hero-2.png"
+                alt="Gerold portrait"
+                className="img-fluid"
+              />
             </div>
           </div>
         </div>
-      </section>
-      {/* HERO SECTION END */}
-    </main>
+      </div>
+    </section>
   );
-};
-
-export default HeroSection;
+}
