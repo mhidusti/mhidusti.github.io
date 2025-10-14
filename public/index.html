@@ -1,45 +1,54 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fa">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous" />
-    <!-- Bootstrap CSS (CDN) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <title>MoAio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
     <meta name="description" content="MoAio — React Application" />
-    <!-- Fonts stylesheet (if exists) -->
-    <!-- اگر فایل stylesheet.css برای فونت‌ها موجود است، این خط را فعال کن -->
-    <!-- <link rel="stylesheet" href="/assets/fonts/stylesheet.css" /> -->
+    <title>MoAio</title>
 
-    <!-- Public CSS (absolute paths) -->
+    <!-- ========================= CSS Files ========================= -->
+    <!-- Bootstrap (از CDN برای سرعت بهتر) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/css/fontawesome.min.css">
-    <link rel="stylesheet" href="/assets/css/flaticon.css">
-    <link rel="stylesheet" href="/assets/css/animate.css">
-    <link rel="stylesheet" href="/assets/css/odometer.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/responsive.css">
-
+    <!-- Template CSS (از پوشه public/assets/css) -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/animate.min.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/font-awesome-pro.min.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/flaticon_gerold.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/nice-select.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/backToTop.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/swiper.min.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/odometer-theme-default.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/magnific-popup.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/main.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/main-2.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/light-mode.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/responsive.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/responsive-2.css" />
   </head>
+
   <body>
-    <noscript>برای اجرای این برنامه باید JavaScript فعال باشد.</noscript>
+    <noscript>برای اجرای اپلیکیشن نیاز به فعال بودن جاوااسکریپت دارید.</noscript>
     <div id="root"></div>
 
-    <!-- -------------- SCRIPTS (load AFTER DOM is ready) -------------- -->
+    <!-- ========================= JS Files ========================= -->
+    <!-- jQuery -->
+    <script src="%PUBLIC_URL%/assets/js/jquery.min.js"></script>
 
-    <!-- 1️⃣ jQuery (باید قبل از هر فایل وابسته به jQuery بیاد) -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap Bundle JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- 2️⃣ Bootstrap Bundle (Popper included) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>  <!-- 3️⃣ سایر کتابخانه‌های jQuery-dependent -->
-    <script src="/assets/js/waypoints.min.js"></script>
-    <script src="/assets/js/wow.min.js"></script>
-    <script src="/assets/js/gsap.min.js"></script>
-    <script src="/assets/js/smooth-scroll.js"></script>
-    <script src="/assets/js/backToTop.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <!-- Template JS -->
+    <script src="%PUBLIC_URL%/assets/js/waypoints.min.js"></script>
+    <script src="%PUBLIC_URL%/assets/js/wow.min.js"></script>
+    <script src="%PUBLIC_URL%/assets/js/gsap.min.js"></script>
+    <script src="%PUBLIC_URL%/assets/js/smooth-scroll.js"></script>
+    <script src="%PUBLIC_URL%/assets/js/backToTop.js"></script>
+    <script src="%PUBLIC_URL%/assets/js/main.js"></script>
   </body>
 </html>

@@ -1,6 +1,7 @@
 .progress-wrap {
 	position: fixed;
 	left: 50px;
+	right: auto;
 	bottom: 50px;
 	height: 46px;
 	width: 46px;

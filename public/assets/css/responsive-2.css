@@ -1,0 +1,293 @@
+/* Extra Large Devices */
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+	/* about */
+	.about-area .about-right-content .about-images {
+		margin-top: 0px;
+	}
+	.about-area .about-left-content {
+		padding: 30px 40px;
+	}
+	.about-area .about-left-content .about-button {
+		margin-top: 50px;
+	}
+}
+
+/* Large Devices */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+	/* hero */
+	.hero-wrrapper {
+		column-gap: 50px;
+	}
+	/* header */
+	.tj-header-area.style-2 {
+		padding: 30px 0 15px;
+	}
+	/* about */
+	.about-area .about-right-content .about-images {
+		margin-top: 0px;
+	}
+	.about-area .about-left-content {
+		padding: 30px 20px;
+	}
+	.about-area .about-left-content .about-button {
+		margin-top: 50px;
+	}
+	.about-area .about-left-content .title {
+		font-size: 40px;
+	}
+	.about-area .about-right-content .about-text {
+		padding: 30px 20px 0px;
+	}
+	/* project */
+	.project-left-content .project-list span {
+		font-size: 13px;
+	}
+	.project-content-area.featured {
+		padding: 20px;
+	}
+	.project-content-area.featured .project-left-content .project_tags {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	.project-content-area .project-wrapper {
+		height: 280px;
+	}
+}
+
+/* Tablet Devices */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	/* header */
+	.tj-header-area.style-2 {
+		padding: 20px 0 15px;
+	}
+	/* hero */
+	.hero-wrrapper {
+		column-gap: 30px;
+		padding: 30px 20px;
+	}
+	.hero-title {
+		font-size: 30px;
+	}
+	.funfact-area.style-2 {
+		padding: 30px 20px;
+		margin-top: 35px;
+	}
+	.funfact-area.style-2 .funfact-item .number {
+		font-size: 45px;
+	}
+	/* about */
+	.about-area .about-right-content .about-images {
+		margin-top: 0px;
+	}
+	.about-area .about-left-content {
+		padding: 30px 20px;
+		margin-bottom: 35px;
+	}
+	.about-area .about-left-content .about-button {
+		margin-top: 50px;
+	}
+	.about-area .about-left-content .title {
+		font-size: 35px;
+	}
+	.about-area .about-right-content .about-text {
+		padding: 30px 20px 0px;
+	}
+	/* project */
+	.project-content-area.featured {
+		padding: 20px;
+		flex-direction: column-reverse;
+		align-items: start;
+	}
+	.project-content-area.featured .project-left-content {
+		max-width: 100%;
+		width: 100%;
+	}
+	.project-content-area.featured .project-left-content .project_tags {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	.project-left-content .project-list span {
+		font-size: 13px;
+	}
+	.project-content-area .project-wrapper {
+		height: auto;
+	}
+	.project-section {
+		padding-bottom: 55px;
+	}
+	/* specialization */
+	.specialization-section {
+		padding-bottom: 55px;
+	}
+	/* testimonial */
+	.testimonial-item.style-2 {
+		padding: 30px 20px;
+	}
+	/* works */
+	.works-content-area {
+		padding: 30px 20px;
+	}
+	.works-content-area .works-content-item .works-content-box {
+		padding-left: 25px;
+	}
+	.works-item::before {
+		left: -31px;
+	}
+	.works-content-area
+		.works-content-item:nth-child(1)
+		.works-content-box::before {
+		height: 55%;
+	}
+	.works-content-area
+		.works-content-item:nth-child(3)
+		.works-content-box::before {
+		height: 68%;
+	}
+	/* contact */
+	.contact-content-area {
+		flex-direction: column;
+		align-items: start;
+		padding: 30px 20px;
+	}
+	.contact-info-list-2 {
+		max-width: 100%;
+	}
+}
+
+/* Mobile Devices */
+@media only screen and (max-width: 767px) {
+	/* header */
+	.tj-header-area.style-2 {
+		padding: 20px 0 15px;
+	}
+	/* hero */
+	.hero-wrrapper {
+		column-gap: 30px;
+		padding: 30px 20px;
+	}
+	.hero-title {
+		font-size: 30px;
+	}
+	.hero-wrrapper .hero-image-box {
+		max-width: 100%;
+	}
+	.hero-wrrapper .hero-image-box img {
+		border-radius: 35px;
+	}
+	.funfact-area.style-2 {
+		padding: 30px 20px;
+		margin-top: 35px;
+		flex-wrap: wrap;
+	}
+	.funfact-area.style-2 .funfact-item {
+		max-width: 120px;
+	}
+	.funfact-area.style-2 .funfact-item .number {
+		font-size: 45px;
+	}
+	.funfact-area.style-2 .funfact-item .text {
+		margin-top: 0px;
+	}
+	/* about */
+	.about-area .about-right-content .about-images {
+		margin-top: 0px;
+	}
+	.about-area .about-left-content {
+		padding: 30px 20px;
+		margin-bottom: 35px;
+	}
+	.about-area .about-left-content .about-button {
+		margin-top: 50px;
+	}
+	.about-area .about-left-content .title {
+		font-size: 30px;
+	}
+	.about-area .about-right-content .about-text {
+		padding: 30px 20px 0px;
+	}
+	/* project */
+	.project-content-area {
+		padding: 20px 15px;
+	}
+	.project-content-area.featured {
+		flex-direction: column-reverse;
+		align-items: start;
+		padding: 20px 15px;
+	}
+	.project-content-area.featured .project-left-content {
+		max-width: 100%;
+	}
+	.project-content-area.featured .project-left-content .project_tags {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	.project-left-content .project-list span {
+		font-size: 13px;
+	}
+	.project-content-area .project-wrapper {
+		height: auto;
+	}
+	.project-section {
+		padding-bottom: 55px;
+	}
+	.project-left-content .section-header.style-2 .section-title {
+		font-size: 25px;
+	}
+	.bottom-content .project-content-area {
+		padding: 20px 15px;
+	}
+	/* specialization */
+	.specialization-section {
+		padding-bottom: 55px;
+	}
+	.specialization-item .specialization-content {
+		padding: 15px 15px 30px;
+	}
+	/* testimonial */
+	.testimonial-item.style-2 {
+		padding: 30px 20px;
+	}
+	/* works */
+	.works-content-area {
+		padding: 30px 20px;
+		flex-direction: column;
+	}
+	.works-content-area .works-content-item .works-content-box {
+		padding-left: 25px;
+	}
+	.works-item::before {
+		left: -31px;
+	}
+	.works-content-area
+		.works-content-item:nth-child(1)
+		.works-content-box::before {
+		height: 55%;
+	}
+	.works-content-area
+		.works-content-item:nth-child(3)
+		.works-content-box::before {
+		height: 68%;
+	}
+	.works-item .title {
+		font-size: 18px;
+	}
+	/* contact */
+	.contact-content-area {
+		flex-direction: column;
+		align-items: start;
+		padding: 30px 20px;
+		gap: 30px;
+	}
+	.contact-info-list-2 {
+		max-width: 100%;
+	}
+	.contact-content-area .form_group textarea {
+		height: 150px;
+	}
+	.works-content-area {
+		gap: 50px;
+	}
+	.works-content-item .title {
+		margin-bottom: 30px;
+	}
+}

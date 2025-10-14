@@ -54,7 +54,7 @@ body {
    @color declaration
   ------------------------------------ */
 	--tj-body: #dddddd;
-	--tj-white: #ffffff;
+	--tj-white: #000000;
 	--tj-off-white: #f6f3fc;
 	--tj-black: #000000;
 	--tj-black-2: #050709;
