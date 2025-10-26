@@ -1,95 +1,126 @@
-// components/Portfolio.jsx
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import "../portfolio.css";
 
-export default function Portfolio() {
+const projects = [
+  { title: "Menu App", image: "/assets/img/portfolio/meno.png", description: "Frontend React project and backend restAPI." },
+  { title: "IranMarket",  image: "/assets/img/portfolio/irankala.png", description: "Backend Django API project with product management." },
+  { title: "Cosmetic Store",  image: "/assets/img/portfolio/cosmetic.png", description: "Full-Stack eCommerce built with Django & React." },
+  { title: "Arat Platform",  image: "/assets/img/portfolio/arat.png", description: "django backend with seo" },
+  { title: "api design",  image: "/assets/img/portfolio/api.png", description: "Task management app with React & Django REST And react." },
+
+];
+
+// مسیر فایل‌های شبیه‌سازی شده / تصاویر / GIF
+const mockperv = {
+  "Menu App": "/assets/mock-perv/food.mp4",
+  "IranMarket": "/assets/mock-perv/iranmarket.mp4",
+  "Cosmetic Store": "/assets/mock-perv/cosmetic.gif.mp4",
+  "Arat Platform": "/assets/mock-perv/ARAT.mp4",
+  "api design": "/assets/mock-perv/API.mp4",
+};
+
+export default function PortfolioScroll() {
+  const containerRef = useRef(null);
+  const scrollingRef = useRef(false);
+  const [activeProject, setActiveProject] = useState(null);
+
+  // اسکرول نرم افقی
+  const smoothScroll = (container, target) => {
+    const start = container.scrollLeft;
+    const change = target - start;
+    const duration = 200;
+    let currentTime = 0;
+    const easeOutQuad = (t) => t * (2 - t);
+
+    const animate = () => {
+      currentTime += 16;
+      const progress = Math.min(currentTime / duration, 1);
+      container.scrollLeft = start + change * easeOutQuad(progress);
+      if (progress < 1) requestAnimationFrame(animate);
+      else scrollingRef.current = false;
+    };
+    requestAnimationFrame(animate);
+  };
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    container.scrollLeft = 0;
+
+    const onWheel = (e) => {
+      e.preventDefault();
+      if (scrollingRef.current) return;
+      scrollingRef.current = true;
+
+      const scrollAmount = e.deltaY * 2.5;
+      const maxScroll = container.scrollWidth - container.clientWidth;
+
+      if (scrollAmount > 0) {
+        if (container.scrollLeft + scrollAmount >= maxScroll) {
+          smoothScroll(container, maxScroll);
+          setTimeout(() => {
+            window.scrollBy({ top: scrollAmount, behavior: "smooth" });
+          }, 200);
+        } else {
+          smoothScroll(container, container.scrollLeft + scrollAmount);
+        }
+      } else {
+        if (window.scrollY > 0 && container.scrollLeft <= 0) {
+          window.scrollBy({ top: scrollAmount, behavior: "smooth" });
+          scrollingRef.current = false;
+        } else {
+          smoothScroll(container, container.scrollLeft + scrollAmount);
+        }
+      }
+    };
+
+    container.addEventListener("wheel", onWheel, { passive: false });
+    return () => container.removeEventListener("wheel", onWheel);
+  }, []);
+
+  const openProject = (project) => {
+    // باز کردن پیش‌نمایش شبیه‌سازی شده
+    const preview = mockperv[project.title];
+    if (preview) setActiveProject(preview);
+  };
+
   return (
-    <section className="portfolio-section" id="works-section">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12">
-            <div className="section-header text-center">
-              <h2 className="section-title wow fadeInUp" data-wow-delay=".3s">
-                My Recent Works
-              </h2>
-              <p className="wow fadeInUp" data-wow-delay=".4s">
-                We put your ideas and thus your wishes in the form of a unique web project that inspires you and your customers.
-              </p>
+    <section className="portfolio-scroll-section">
+
+
+      <div className="portfolio-scroll-inner" ref={containerRef}>
+     
+        {projects.map((p, i) => (
+          <div key={i} className="portfolio-card fade-in">
+            <div
+              className="portfolio-img-wrapper"
+              onClick={() => openProject(p)}
+            >
+              <img src={p.image} alt={p.title} />
+            </div>
+            <div className="portfolio-info">
+              <h3>{p.title}</h3>
+              <p>{p.description}</p>
             </div>
           </div>
-        </div>
-
-        <div className="row">
-          <div className="col-md-12">
-            <div className="portfolio-filter text-center wow fadeInUp" data-wow-delay=".5s">
-              <div className="button-group filter-button-group">
-                <button data-filter="*" className="active">All</button>
-                <button data-filter=".uxui">UX/UI</button>
-                <button data-filter=".branding">Branding</button>
-                <button data-filter=".mobile-app">Apps</button>
-                <div className="active-bg"></div>
-              </div>
-            </div>
-
-            <div className="portfolio-box wow fadeInUp" data-wow-delay=".6s">
-              <div className="portfolio-sizer"></div>
-              <div className="gutter-sizer"></div>
-
-              {/* Portfolio Item 1 */}
-              <div className="portfolio-item branding">
-                <div className="image-box">
-                  <img src="/assets/img/portfolio/2.jpg" alt="Deloitte project" />
-                </div>
-                <div className="content-box">
-                  <h3 className="portfolio-title">Deloitte</h3>
-                  <p>Project was about precision and information.</p>
-                  <i className="flaticon-up-right-arrow"></i>
-                  <button data-mfp-src="#portfolio-wrapper" className="portfolio-link modal-popup" />
-                </div>
-              </div>
-
-              {/* Portfolio Item 2 */}
-              <div className="portfolio-item uxui">
-                <div className="image-box">
-                  <img src="/assets/img/portfolio/1.jpg" alt="New Age project" />
-                </div>
-                <div className="content-box">
-                  <h3 className="portfolio-title">New Age</h3>
-                  <p>Project was about precision and information.</p>
-                  <i className="flaticon-up-right-arrow"></i>
-                  <button data-mfp-src="#portfolio-wrapper" className="portfolio-link modal-popup" />
-                </div>
-              </div>
-
-              {/* Portfolio Item 3 */}
-              <div className="portfolio-item mobile-app">
-                <div className="image-box">
-                  <img src="/assets/img/portfolio/3.jpg" alt="Sebastian project" />
-                </div>
-                <div className="content-box">
-                  <h3 className="portfolio-title">Sebastian</h3>
-                  <p>Project was about precision and information.</p>
-                  <i className="flaticon-up-right-arrow"></i>
-                  <button data-mfp-src="#portfolio-wrapper" className="portfolio-link modal-popup" />
-                </div>
-              </div>
-
-              {/* Portfolio Item 4 */}
-              <div className="portfolio-item branding">
-                <div className="image-box">
-                  <img src="/assets/img/portfolio/4.jpg" alt="Mochnix project" />
-                </div>
-                <div className="content-box">
-                  <h3 className="portfolio-title">Mochnix</h3>
-                  <p>Project was about precision and information.</p>
-                  <i className="flaticon-up-right-arrow"></i>
-                  <button data-mfp-src="#portfolio-wrapper" className="portfolio-link modal-popup" />
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
+{/* Slide-in Panel */}
+<div className={`slide-panel ${activeProject ? "open" : ""}`}>
+  <button className="close-btn" onClick={() => setActiveProject(null)}>×</button>
+
+  {activeProject && (
+    activeProject.endsWith(".gif") ? (
+      <div className="gif-preview-wrapper">
+        <img src={activeProject} alt="Project GIF Preview" className="gif-preview" />
+      </div>
+    ) : (
+      <iframe src={activeProject} title="Mock Preview" />
+    )
+  )}
+</div>
+
+      
     </section>
   );
 }

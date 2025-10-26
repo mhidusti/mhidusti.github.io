@@ -1,0 +1,17 @@
+
+/* عنوان سرویس */
+.service-title {
+  font-size: 1.5rem;
+  color: #2e2e2e;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* توضیحات سرویس */
+.service-item .right-box p {
+  color: #666666;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+

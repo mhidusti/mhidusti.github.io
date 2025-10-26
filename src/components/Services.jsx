@@ -11,8 +11,10 @@ export default function Services() {
                 Skills
               </h2>
               <p className="wow fadeInUp" data-wow-delay=".4s" >
-                I have hands-on experience in multiple design and development tools. 
-                My focus is on creating clean, efficient, and visually appealing products that deliver a great user experience.
+             As a Full Stack Developer,
+              I build digital experiences that connect design and logic.
+        My work is all about clarity, performance, and creating web solutions that feel effortless — both 
+        for users and developers.
               </p>
             </div>
           </div>
@@ -22,72 +24,194 @@ export default function Services() {
           <div className="col-md-12">
             <div className="skills-widget style-2 d-flex flex-wrap justify-content-center align-items-center">
 
-              {/* Figma */}
+  
               <div className="skill-item wow fadeInUp" data-wow-delay=".3s">
                 <div className="skill-inner">
                   <div className="icon-box">
-                    <img src="/assets/img/icons/figma.svg" alt="Figma" />
+                    <img src="assets\img\icons\python-svgrepo-com.svg" alt="python" />
                   </div>
-                  <div className="number">92%</div>
+                  <div className="number">100%</div>
                 </div>
-                <p>Figma</p>
+                <p>Python</p>
               </div>
 
-              {/* Sketch */}
+
               <div className="skill-item wow fadeInUp" data-wow-delay=".4s">
                 <div className="skill-inner">
                   <div className="icon-box">
-                    <img src="/assets/img/icons/sketch.svg" alt="Sketch" />
+                    <img src="assets\img\icons\django.svg" alt="Django" />
                   </div>
-                  <div className="number">80%</div>
+                  <div className="number">100%</div>
                 </div>
-                <p>Sketch</p>
+                <p>Django</p>
               </div>
 
-              {/* Adobe XD */}
+        
               <div className="skill-item wow fadeInUp" data-wow-delay=".5s">
                 <div className="skill-inner">
                   <div className="icon-box">
-                    <img src="/assets/img/icons/xd.svg" alt="Adobe XD" />
+                    <img src="assets\img\icons\fastapi.svg" alt=" Fastapi" />
                   </div>
-                  <div className="number">85%</div>
+                  <div className="number">100%</div>
                 </div>
-                <p>Adobe XD</p>
+                <p>FastApi </p>
               </div>
 
-              {/* WordPress */}
               <div className="skill-item wow fadeInUp" data-wow-delay=".6s">
                 <div className="skill-inner">
                   <div className="icon-box">
-                    <img src="/assets/img/icons/wp.svg" alt="WordPress" />
+                    <img src="assets\img\icons\rest-api.svg" alt="RESTAPI" />
                   </div>
-                  <div className="number">99%</div>
+                  <div className="number">100%</div>
                 </div>
-                <p>WordPress</p>
+                <p>RestApi</p>
               </div>
 
-              {/* React */}
+        
               <div className="skill-item wow fadeInUp" data-wow-delay=".7s">
+                <div className="skill-inner">
+                  <div className="icon-box">
+                    <img src="/assets/img/icons/docker.svg" alt="docker" />
+                  </div>
+                  <div className="number">100%</div>
+                </div>
+                <p>Docker</p>
+              </div>
+
+
+              <div className="skill-item wow fadeInUp" data-wow-delay=".8s">
+                <div className="skill-inner">
+                  <div className="icon-box">
+                    <img src="/assets/img/icons/redis.svg" alt="Redis" />
+                  </div>
+                  <div className="number">100%</div>
+                </div>
+                <p>Redis</p>
+              </div>
+
+              <div className="skill-item wow fadeInUp" data-wow-delay=".8s">
                 <div className="skill-inner">
                   <div className="icon-box">
                     <img src="/assets/img/icons/react.svg" alt="React" />
                   </div>
-                  <div className="number">89%</div>
+                  <div className="number">90%</div>
                 </div>
                 <p>React</p>
               </div>
 
-              {/* JavaScript */}
               <div className="skill-item wow fadeInUp" data-wow-delay=".8s">
                 <div className="skill-inner">
                   <div className="icon-box">
-                    <img src="/assets/img/icons/js.svg" alt="JavaScript" />
+                    <img src="/assets/img/icons/postman.svg" alt="postman" />
                   </div>
-                  <div className="number">93%</div>
+                  <div className="number">100%</div>
                 </div>
-                <p>JavaScript</p>
+                <p>Postman</p>
               </div>
 
+              <div className="skill-item wow fadeInUp" data-wow-delay=".8s">
+                <div className="skill-inner">
+                  <div className="icon-box">
+                    <img src="/assets/img/icons/linux.svg" alt="linux" />
+                  </div>
+                  <div className="number">100%</div>
+                </div>
+                <p>Linux</p>
+              </div>
+
+              <div className="skill-item wow fadeInUp" data-wow-delay=".8s">
+                <div className="skill-inner">
+                  <div className="icon-box">
+                    <img src="/assets/img/icons/mysql.svg" alt="mysql" />
+                  </div>
+                  <div className="number">100%</div>
+                </div>
+                <p>Mysql</p>
+              </div>
+
+              <div className="skill-item wow fadeInUp" data-wow-delay=".8s">
+                <div className="skill-inner">
+                  <div className="icon-box">
+                    <img src="/assets/img/icons/github.svg" alt="github" />
+                  </div>
+                  <div className="number">100%</div>
+                </div>
+                <p>Github</p>
+              </div>
+
+         <div className="skill-item wow fadeInUp" data-wow-delay=".8s">
+                <div className="skill-inner">
+                  <div className="icon-box">
+                    <img src="/assets/img/icons/figma.svg" alt="figma" />
+                  </div>
+                  <div className="number">100%</div>
+                </div>
+                <p>Figma</p>
+              </div>
+
+
+         <div className="skill-item wow fadeInUp" data-wow-delay=".8s">
+                <div className="skill-inner">
+                  <div className="icon-box">
+                    <img src="/assets/img/icons/bootstrap.svg" alt="bootstarp" />
+                  </div>
+                  <div className="number">100%</div>
+                </div>
+                <p>Bootstrap</p>
+              </div>
+
+
+         <div className="skill-item wow fadeInUp" data-wow-delay=".8s">
+                <div className="skill-inner">
+                  <div className="icon-box">
+                    <img src="/assets/img/icons/html.svg" alt="html" />
+                  </div>
+                  <div className="number">100%</div>
+                </div>
+                <p>Html</p>
+              </div>
+      <div className="skill-item wow fadeInUp" data-wow-delay=".8s">
+                <div className="skill-inner">
+                  <div className="icon-box">
+                    <img src="/assets/img/icons/css.svg" alt="css" />
+                  </div>
+                  <div className="number">100%</div>
+                </div>
+                <p>Css</p>
+              </div>
+
+
+         <div className="skill-item wow fadeInUp" data-wow-delay=".8s">
+                <div className="skill-inner">
+                  <div className="icon-box">
+                    <img src="/assets/img/icons/js.svg" alt="js" />
+                  </div>
+                  <div className="number">100%</div>
+                </div>
+                <p>Js</p>
+              </div>
+
+         <div className="skill-item wow fadeInUp" data-wow-delay=".8s">
+                <div className="skill-inner">
+                  <div className="icon-box">
+                    <img src="/assets/img/icons/php.svg" alt="php" />
+                  </div>
+                  <div className="number">100%</div>
+                </div>
+                <p>Php</p>
+              </div>
+
+         <div className="skill-item wow fadeInUp" data-wow-delay=".8s">
+                <div className="skill-inner">
+                  <div className="icon-box">
+                    <img src="/assets/img/icons/wordpress.svg" alt="wordpress" />
+                  </div>
+                  <div className="number">100%</div>
+                </div>
+                <p>Wordprees</p>
+              </div>
+
+   
             </div>
           </div>
         </div>

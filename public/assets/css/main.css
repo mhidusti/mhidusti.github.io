@@ -170,7 +170,9 @@ h1 {
 
 h2 {
   font-size: var(--tj-fz-h2);
+  
 }
+
 
 h3 {
   font-size: var(--tj-fz-h3);
@@ -415,27 +417,18 @@ a h6:hover {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-.section-header {
+}.section-header {
   margin-bottom: 50px;
   max-width: 700px;
   width: 100%;
+  position: relative;
+  z-index: 1;
+   
 }
+
 .section-header .section-title {
+  position: relative;
   font-size: 45px;
-  background: var(--tj-theme-primary);
-  background: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(var(--tj-theme-primary)),
-    to(var(--tj-white))
-  );
-  background: -o-linear-gradient(
-    left,
-    var(--tj-theme-primary) 0%,
-    var(--tj-white) 100%
-  );
   background: linear-gradient(
     to right,
     var(--tj-theme-primary) 0%,
@@ -446,22 +439,30 @@ a h6:hover {
   display: inline-flex;
   gap: 15px;
   margin-bottom: 0;
+  z-index: 2;
 }
+
+
 .section-header p {
   margin-top: 15px;
+
 }
+
 .section-header p:last-child {
   margin-bottom: 0;
 }
+
 .section-header.style-2 .section-title {
   font-weight: var(--tj-fw-medium);
 }
+
 .section-header.style-2 .sub-title {
   color: rgba(255, 255, 255, 0.5);
   font-weight: var(--tj-fw-regular);
   display: block;
   margin-bottom: 15px;
 }
+
 .owl-carousel .owl-nav button.owl-next,
 .owl-carousel .owl-nav button.owl-prev,
 .owl-carousel button.owl-dot {
@@ -949,26 +950,32 @@ body.loaded {
 /* ===== Hero: centered minimal (replace/add at end of main.css) ===== */
 .hero-section {
   padding: 140px 0 120px;
-  background: #ffffff;      /* white base */
+  background: #ffffff;
   position: relative;
   overflow: hidden;
   text-align: center;
   color: #111;
   font-family: "Satoshi", "Manrope", "Inter", sans-serif;
+  height: 750px;
 }
 
-/* subtle soft radial background center (like reference) */
+/* هاله‌ی آبی نرم و گرد */
 .hero-section::before {
   content: "";
   position: absolute;
   left: 50%;
-  top: 20%;
-  width: 500px;
-  height: 400px;
-  transform: translate(-50%, -10%);
+  top: 40%; /* پایین‌تر از وسط برای نیم‌دایره */
+  width: 1000px; /* دایره بزرگ‌تر */
+  height: 1000px;
+  transform: translate(-50%, -50%);
   border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(240,241,243,1) 0%, rgba(248,249,250,1) 35%, rgba(255,255,255,0.0) 70%);
-  filter: blur(70px);
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 123, 255, 0.35) 0%,   /* مرکز آبی */
+    rgba(0, 123, 255, 0.15) 40%,  /* لایه‌ی میانی */
+    rgba(255, 255, 255, 0) 80%    /* بیرون محو */
+  );
+  filter: blur(120px); /* محو و نرم‌تر */
   z-index: 0;
 }
 
@@ -990,7 +997,7 @@ body.loaded {
   letter-spacing: -0.6px;
 }
 
-/* subtle highlighted name */
+./* subtle highlighted name */
 .hero-title span {
   color: #9aa0a6;       /* soft gray highlight */
   font-weight: 600;
@@ -1071,7 +1078,7 @@ body.loaded {
 .services-section {
   padding-top: 120px;
   padding-bottom: 120px;
-  background-color: var(--tj-black-2);
+  background-color: #868383;
 }
 .services-section .section-header {
   margin-left: auto;
@@ -1861,15 +1868,20 @@ body.loaded {
   margin-right: auto;
 }
 .skills-widget {
-  gap: 20px;
-  row-gap: 30px;
-}
-.skills-widget .skill-item {
-  max-width: 180px;
-  width: 100%;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;          /* فاصله افقی بین آیتم‌ها */
+  row-gap: 6px;      /* فاصله عمودی کمتر */
 }
 
+.skills-widget .skill-item {
+  width: 190px;  
+  height: 250px;         /* عرض کمتر (قبلاً حدود 150–200 بود) */
+  text-align: center;
+  padding: 8px 2px;       /* فاصله داخلی کمتر */
+}
 .skills-widget .skill-inner {
   border-radius: 25px;
   padding: 40px 15px 30px;
@@ -1969,11 +1981,12 @@ body.loaded {
   margin-bottom: 20px;
 }
 .testimonials-widget .testimonial-item .image-box {
-  width: 40%;
+  width: 80%;
   max-width: 120px;
 }
 .testimonials-widget .testimonial-item .image-box img {
   border-radius: 5px 5px 5px 125px;
+
 }
 .testimonials-widget .testimonial-item .logo-box {
   max-width: 100px;
@@ -2021,7 +2034,7 @@ body.loaded {
 .testimonials-widget .testimonial-item span.designation {
   font-size: 14px;
   display: block;
-  direction: rtl;
+  
 }
 /* END: Testimonials Section */
 
@@ -3494,3 +3507,111 @@ body.absolute_header .breadcrumb_area {
 }
 
 /* END: Modal CSS */
+/* پایه دایره موس */
+.custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0) translate(-50%, -50%);
+  transition: width 180ms ease, height 180ms ease, background 220ms ease, opacity 200ms ease, box-shadow 220ms ease;
+  z-index: 9999;
+  mix-blend-mode: normal; /* یا difference برای افکت تیره/روشن */
+  background: #96eafffd; /* پیش‌فرض شفاف داخل */
+  border: 2px solid var(--cursor-color, #96eafffd;);
+  box-shadow: 0 6px 18px rgba(189, 189, 189, 0.08);
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* حالت hover (روی لینک/دکمه/عنصر تعاملی) */
+.custom-cursor.cursor--hover {
+  width: 18px;
+  height: 18px;
+  border-width: 1px;
+  background: rgba(0, 188, 212, 0.12); /* رنگ نیمه شفاف */
+  box-shadow: 0 14px 40px rgba(0, 188, 212, 0.15);
+}
+
+/* اگر خواستی هاله‌ی ملایم پشت دایره هم داشته باشی */
+.custom-cursor::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  filter: blur(24px);
+  opacity: 0.9;
+  background: radial-gradient(circle at center, rgba(0,188,212,0.22) 0%, rgba(0,188,212,0.05) 40%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* کوچک‌تر کردن یا تغییر رنگ وقتی روی المان با کلاس خاصی می‌ریم */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor {
+  /* این selector در صورتی کار می‌کنه که cursor در دادره‌ی همان parent نباشد.
+     چون ما cursor در root گذاشتیم، از JS برای اضافه کردن کلاس استفاده کردیم. */
+}
+
+/* صافی برای موبایل: مخفی کردن cursor در touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor {
+    display: none;
+  }
+}
+
+
+.scroll-down {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgb(109, 109, 109);
+  border: 2px solid rgba(180, 180, 180, 0.4);
+  cursor: pointer;
+  animation: float 2.2s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.scroll-down.filled {
+  background: rgba(117, 117, 117, 0.63); /* توپر واقعی */
+  border-color: rgba(92, 92, 92, 0.5);
+  box-shadow: 0 0 10px rgba(117, 117, 117, 0.4); /* افکت نرم */
+}
+.scroll-down__arrow {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid rgba(152, 248, 255, 0.9);
+  border-bottom: 2px solid rgba(100, 245, 255, 0.9);
+  transform: rotate(45deg);
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.scroll-down:hover {
+  transform: translateY(-6px);
+  background: rgba(180, 180, 180, 0.4);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* موبایل */
+@media (max-width: 576px) {
+  .scroll-down {
+    width: 46px;
+    height: 46px;
+  }
+  .scroll-down__arrow {
+    width: 10px;
+    height: 10px;
+  }
+}

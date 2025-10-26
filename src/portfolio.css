@@ -1,0 +1,343 @@
+.portfolio-scroll-section {
+  position: relative;
+  height: 100vh;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 60px;
+}
+
+.portfolio-scroll-inner {
+  display: flex;
+  gap: 60px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 20px;
+
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE */
+}
+
+.portfolio-scroll-inner::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.portfolio-card {
+  flex: 0 0 420px; /* باکس بزرگ‌تر */
+  background: linear-gradient(135deg, #68686894, #91b1b9);
+  border-radius: 28px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.35);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeSlideUp 0.6s forwards;
+}
+.portfolio-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+}
+
+.portfolio-img-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.portfolio-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  filter: grayscale(100%);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.portfolio-img-wrapper img:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.portfolio-info {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.portfolio-info h3 {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+.portfolio-info span {
+  color: #00c6ff;
+  font-weight: 500;
+}
+
+.portfolio-info p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.project-link {
+  color: #00c6ff;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.project-link:hover {
+  color: #0094ff;
+}
+
+/* فلش‌ها بزرگ و گرد */
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #00c6ff;
+  border: none;
+  color: #0d0d0d;
+  font-size: 3rem;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 20px rgba(0, 198, 255, 0.5);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.scroll-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: #00aaff;
+}
+
+.scroll-btn.left {
+  left: 15px;
+}
+
+.scroll-btn.right {
+  right: 15px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .portfolio-card { flex: 0 0 300px; }
+  .scroll-btn { width: 60px; height: 60px; font-size: 2.5rem; }
+}
+
+@media (max-width: 768px) {
+  .portfolio-card { flex: 0 0 250px; }
+  .scroll-btn { width: 50px; height: 50px; font-size: 2rem; }
+}
+/* کارت‌ها به صورت نرم ظاهر می‌شن */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.portfolio-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+}
+
+/* تصویر طوسی → رنگی در حالت hover */
+.portfolio-img-wrapper img {
+  filter: grayscale(100%);
+  transition: filter 0.6s ease, transform 0.4s ease;
+}
+.portfolio-card:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.08);
+}
+/* مودال اصلی */
+.img-modal {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(230,248,255,0.95));
+  backdrop-filter: blur(10px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.3s ease forwards;
+  transition: all 0.3s ease;
+}
+
+/* عکس داخل مودال */
+.img-modal img {
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 180, 255, 0.25);
+  animation: zoomIn 0.4s ease;
+  object-fit: contain;
+}
+
+/* دکمه ضربدر */
+.close-modal {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  background: #ffffff;
+  border: none;
+  font-size: 2.5rem;
+  color: #00aaff;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  line-height: 50px;
+  text-align: center;
+  box-shadow: 0 5px 25px rgba(0, 150, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+  background: #00aaff;
+  color: white;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 5px 35px rgba(0, 150, 255, 0.4);
+}
+
+/* انیمیشن‌های باز شدن */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+/* ===== Slide Panel (پیش‌نمایش پروژه) ===== */
+.slide-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 1000px;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffffff, #e6f7ff);
+  box-shadow: -5px 0 40px rgba(0, 150, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-left: 2px solid rgba(0, 200, 255, 0.15);
+  z-index: 999;
+  transition: right 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.slide-panel.open {
+  right: 0;
+}
+
+/* Close button (ضربدر بستن) */
+.close-btn {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  background: #fff;
+  color: #00aaff;
+  border: none;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  line-height: 50px;
+  text-align: center;
+  box-shadow: 0 5px 25px rgba(0, 150, 255, 0.25);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.close-btn:hover {
+  background: #00aaff;
+  color: #fff;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 5px 35px rgba(0, 150, 255, 0.45);
+}
+
+/* برای محتوای داخلی */
+.slide-panel iframe,
+.slide-panel .gif-preview-wrapper {
+  width: 90%;
+  height: 80%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 180, 255, 0.25);
+  background: #fff;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.slide-panel iframe {
+  border: none;
+}
+
+/* پیش‌نمایش GIF */
+.gif-preview-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gif-preview {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 20px;
+  object-fit: contain;
+}
+
+/* ===== انیمیشن‌ها ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== ریسپانسیو ===== */
+@media (max-width: 992px) {
+  .slide-panel {
+    width: 100%;
+    border-left: none;
+  }
+
+  .close-btn {
+    top: 15px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 2rem;
+  }
+}

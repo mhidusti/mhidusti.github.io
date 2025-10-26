@@ -6,19 +6,14 @@ export default function Header() {
       <div className="container">
         <div className="row">
           <div className="col-12 d-flex flex-wrap align-items-center">
-            {/* Logo */}
-            <div className="logo-box">
-              <a href="index.html">
-                <img src="assets/img/logo/logo-dark.png" alt="Logo" />
-              </a>
-            </div>
+     
 
             {/* Email Info */}
             <div className="header-info-list d-none d-md-inline-block">
               <ul className="ul-reset">
                 <li>
                   <a href="mailto:mail@gerolddesign.com">
-                    mail@gerolddesign.com
+                  mhidusti@gmail.com
                   </a>
                 </li>
               </ul>
@@ -27,12 +22,12 @@ export default function Header() {
             {/* Navigation Menu */}
             <div className="header-menu">
               <nav>
-                <ul>
-                  <li><a href="#services-section">Services</a></li>
-                  <li><a href="#works-section">Portfolio</a></li>
-                  <li><a href="#resume-section">Resume</a></li>
-                  <li><a href="#skills-section">Skills</a></li>
-                  <li><a href="#testimonials-section">Testimonials</a></li>
+               <ul>
+                  <li><a href="#services-section">Services</a></li>        
+                  <li><a href="#works-section">Projects</a></li>       
+                  <li><a href="#resume-section">Experience</a></li>       
+                  <li><a href="#skills-section">Expertise</a></li>      
+                  <li><a href="#testimonials-section">Feedback</a></li>    
                   <li><a href="#contact-section">Contact</a></li>
                 </ul>
               </nav>
