@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import "../project-lab.css";
 
-export default function ProjectSection() {
+export default function ProjectSectionUnified() {
   const containerRef = useRef(null);
   const [zoomedImage, setZoomedImage] = useState(null);
 
@@ -13,12 +13,10 @@ export default function ProjectSection() {
     { id: "p5", type: "img", src: "assets/img/project/irankala.png" },
   ];
 
-  // تولید موقعیت تصادفی بدون همپوشانی
   const getRandomPositions = (containerWidth, containerHeight) => {
     const padding = 20;
     const used = [];
-    const ITEM_SIZE = 150; // حدودی برای فاصله اولیه بین آیتم‌ها
-
+    const ITEM_SIZE = 250; // اندازه بزرگ دسکتاپ
     return baseItems.map((it) => {
       let left, top;
       let tries = 0;
@@ -58,22 +56,16 @@ export default function ProjectSection() {
     origTop: 0,
     recent: [],
     inertiaFrame: null,
+    isTouch: false,
   });
 
-  // 🧭 محدودکننده با اندازه واقعی المان
   const clampPosition = (left, top, rect, el) => {
     if (!el) return { left, top };
     const itemWidth = el.offsetWidth;
     const itemHeight = el.offsetHeight;
-
-    const minLeft = 0;
-    const minTop = 0;
-    const maxLeft = rect.width - itemWidth;
-    const maxTop = rect.height - itemHeight;
-
     return {
-      left: Math.min(Math.max(left, minLeft), Math.max(maxLeft, 0)),
-      top: Math.min(Math.max(top, minTop), Math.max(maxTop, 0)),
+      left: Math.min(Math.max(left, 0), rect.width - itemWidth),
+      top: Math.min(Math.max(top, 0), rect.height - itemHeight),
     };
   };
 
@@ -81,9 +73,7 @@ export default function ProjectSection() {
     const el = itemRefs.current[id];
     if (!el) return;
     const rot = Math.max(Math.min(vx * 0.06, 6), -6);
-    el.style.transform = `translate3d(${Math.round(left)}px, ${Math.round(
-      top
-    )}px, 0) rotate(${rot}deg)`;
+    el.style.transform = `translate3d(${Math.round(left)}px, ${Math.round(top)}px, 0) rotate(${rot}deg)`;
   };
 
   const startInertia = useCallback((id, initVx, initVy) => {
@@ -127,99 +117,97 @@ export default function ProjectSection() {
     draggingRef.current.inertiaFrame = requestAnimationFrame(step);
   }, []);
 
-  useEffect(() => {
-    const onPointerMove = (e) => {
-      if (!draggingRef.current.id) return;
-      const d = draggingRef.current;
-      const rect = containerRef.current.getBoundingClientRect();
-      const el = itemRefs.current[d.id];
-      let newLeft = d.origLeft + (e.clientX - d.startX);
-      let newTop = d.origTop + (e.clientY - d.startY);
-      const clamped = clampPosition(newLeft, newTop, rect, el);
-      newLeft = clamped.left;
-      newTop = clamped.top;
-      posRef.current[d.id] = { left: newLeft, top: newTop };
-      applyTransform(d.id, newLeft, newTop, e.movementX || 0);
-      const now = performance.now();
-      d.recent.push({ x: e.clientX, y: e.clientY, t: now });
-      if (d.recent.length > 10) d.recent.shift();
-    };
+  const onPointerMove = (e) => {
+    if (!draggingRef.current.id) return;
+    const d = draggingRef.current;
+    const rect = containerRef.current.getBoundingClientRect();
+    const clientX = d.isTouch ? e.touches[0].clientX : e.clientX;
+    const clientY = d.isTouch ? e.touches[0].clientY : e.clientY;
 
-    const stopDragging = () => {
-      const d = draggingRef.current;
-      if (!d.id) return;
-      const recent = d.recent;
-      let vx = 0,
-        vy = 0;
-      if (recent.length >= 2) {
-        const last = recent[recent.length - 1];
-        let refSample = recent[0];
-        for (let i = recent.length - 2; i >= 0; i--) {
-          if (last.t - recent[i].t > 70) {
-            refSample = recent[i];
-            break;
-          }
+    let newLeft = d.origLeft + (clientX - d.startX);
+    let newTop = d.origTop + (clientY - d.startY);
+    const clamped = clampPosition(newLeft, newTop, rect, itemRefs.current[d.id]);
+    posRef.current[d.id] = { left: clamped.left, top: clamped.top };
+    applyTransform(d.id, clamped.left, clamped.top, clientX - d.startX);
+
+    const now = performance.now();
+    d.recent.push({ x: clientX, y: clientY, t: now });
+    if (d.recent.length > 10) d.recent.shift();
+  };
+
+  const stopDragging = () => {
+    const d = draggingRef.current;
+    if (!d.id) return;
+    if (!d.isTouch && d.recent.length >= 2) {
+      let vx = 0, vy = 0;
+      const last = d.recent[d.recent.length - 1];
+      let refSample = d.recent[0];
+      for (let i = d.recent.length - 2; i >= 0; i--) {
+        if (last.t - d.recent[i].t > 70) {
+          refSample = d.recent[i];
+          break;
         }
-        const dt = last.t - refSample.t || 16;
-        vx = ((last.x - refSample.x) / dt) * 16.66;
-        vy = ((last.y - refSample.y) / dt) * 16.66;
       }
+      const dt = last.t - refSample.t || 16;
+      vx = ((last.x - refSample.x) / dt) * 16.66;
+      vy = ((last.y - refSample.y) / dt) * 16.66;
       startInertia(d.id, vx, vy);
-      d.id = null;
-      d.recent = [];
-      document.body.style.userSelect = "";
-    };
+    }
+    d.id = null;
+    d.recent = [];
+    document.body.style.userSelect = "";
+  };
 
-    window.addEventListener("pointermove", onPointerMove);
-    window.addEventListener("pointerup", stopDragging);
-    window.addEventListener("pointercancel", stopDragging);
-
+  useEffect(() => {
+    window.addEventListener("mousemove", onPointerMove);
+    window.addEventListener("mouseup", stopDragging);
+    window.addEventListener("touchmove", onPointerMove, { passive: false });
+    window.addEventListener("touchend", stopDragging);
+    window.addEventListener("touchcancel", stopDragging);
     return () => {
-      window.removeEventListener("pointermove", onPointerMove);
-      window.removeEventListener("pointerup", stopDragging);
-      window.removeEventListener("pointercancel", stopDragging);
+      window.removeEventListener("mousemove", onPointerMove);
+      window.removeEventListener("mouseup", stopDragging);
+      window.removeEventListener("touchmove", onPointerMove);
+      window.removeEventListener("touchend", stopDragging);
+      window.removeEventListener("touchcancel", stopDragging);
     };
   }, [startInertia]);
 
   const handlePointerDown = (e, item) => {
-    if (e.button && e.button !== 0) return;
-    draggingRef.current.id = item.id;
-    draggingRef.current.startX = e.clientX;
-    draggingRef.current.startY = e.clientY;
-    draggingRef.current.origLeft = posRef.current[item.id]?.left ?? item.left;
-    draggingRef.current.origTop = posRef.current[item.id]?.top ?? item.top;
-    draggingRef.current.recent = [
-      { x: e.clientX, y: e.clientY, t: performance.now() },
-    ];
+    const isTouch = e.type.startsWith("touch");
+    const clientX = isTouch ? e.touches[0].clientX : e.clientX;
+    const clientY = isTouch ? e.touches[0].clientY : e.clientY;
+
+    draggingRef.current = {
+      id: item.id,
+      startX: clientX,
+      startY: clientY,
+      origLeft: posRef.current[item.id]?.left ?? item.left,
+      origTop: posRef.current[item.id]?.top ?? item.top,
+      recent: [{ x: clientX, y: clientY, t: performance.now() }],
+      inertiaFrame: null,
+      isTouch,
+    };
     document.body.style.userSelect = "none";
 
     const handleClickCheck = (upEvent) => {
-      const moved = Math.hypot(
-        upEvent.clientX - e.clientX,
-        upEvent.clientY - e.clientY
-      );
-      if (moved < 5 && item.type === "img") {
+      const endX = isTouch ? upEvent.changedTouches[0].clientX : upEvent.clientX;
+      const endY = isTouch ? upEvent.changedTouches[0].clientY : upEvent.clientY;
+      if (Math.hypot(endX - clientX, endY - clientY) < 5 && item.type === "img") {
         setZoomedImage(item.src);
       }
-      window.removeEventListener("pointerup", handleClickCheck);
+      if (isTouch) window.removeEventListener("touchend", handleClickCheck);
+      else window.removeEventListener("mouseup", handleClickCheck);
     };
-    window.addEventListener("pointerup", handleClickCheck);
+    if (isTouch) window.addEventListener("touchend", handleClickCheck);
+    else window.addEventListener("mouseup", handleClickCheck);
   };
 
   return (
     <section className="project-section lab" id="project-section">
       <div className="container">
         <div className="text-center mb-4">
-          <h2
-            className="section-title wow fadeInUp"
-            data-wow-delay=".4s"
-            style={{
-              fontFamily: '"Clash Display", sans-serif',
-              fontWeight: 600,
-              fontSize: "2.5rem",
-              color: "#00cfff",
-            }}
-          >
+          <h2 className="section-title" style={{ fontFamily: '"Clash Display", sans-serif', fontWeight: 600, fontSize: "2.5rem", color: "#00cfff" }}>
             Projects
           </h2>
         </div>
@@ -230,32 +218,12 @@ export default function ProjectSection() {
               key={item.id}
               ref={(el) => (itemRefs.current[item.id] = el)}
               className="lab-item"
-              style={{
-                position: "absolute",
-                left: 0,
-                top: 0,
-                zIndex: 100 + idx,
-                transform: `translate3d(${item.left}px, ${item.top}px, 0)`,
-                cursor: item.type === "img" ? "pointer" : "default",
-              }}
-              onPointerDown={(e) => handlePointerDown(e, item)}
+              style={{ transform: `translate3d(${item.left}px, ${item.top}px, 0)`, zIndex: 100 + idx }}
+              onMouseDown={(e) => handlePointerDown(e, item)}
+              onTouchStart={(e) => handlePointerDown(e, item)}
             >
-              <div className="lab-item__inner" style={{ padding: "6px" }}>
-                {item.type === "img" ? (
-                  <img
-                    src={item.src}
-                    alt={item.id}
-                    draggable="false"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "contain",
-                      borderRadius: "10px",
-                    }}
-                  />
-                ) : (
-                  <div className="lab-text">{item.text}</div>
-                )}
+              <div className="lab-item__inner">
+                <img src={item.src} alt={item.id} draggable="false" />
               </div>
             </div>
           ))}
@@ -281,7 +249,7 @@ export default function ProjectSection() {
             alt="zoomed"
             style={{
               maxWidth: "80vw",
-              maxHeight: "150vh",
+              maxHeight: "80vh",
               borderRadius: "16px",
               boxShadow: "0 0 40px rgba(0,0,0,0.5)",
               transition: "transform 0.3s ease",

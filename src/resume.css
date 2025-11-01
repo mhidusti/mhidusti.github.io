@@ -1,0 +1,133 @@
+.glass-resume-section {
+  padding: 5rem 0;
+  /* گرادیانت سفید و آبی روشن */
+  background: linear-gradient(135deg, #ffffff96 0%, #aec2cad7 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-resume-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: 
+      radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(173, 216, 230, 0.2) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+
+.glass-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Title */
+.glass-section-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  margin-bottom: 4rem;
+  animation: fadeInUp 0.8s ease;
+}.glass-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap; /* روی موبایل میره خط بعد */
+}
+
+/* کارت‌ها */
+.glass-card {
+  background: rgba(139, 180, 180, 0.616);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  padding: 2rem;
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+  min-width: 250px;
+  flex: 1;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+
+.glass-card-title {
+  color: rgb(88, 88, 88);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  position: relative;
+}
+
+.glass-card-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+}
+
+/* Skills wrapper */
+.skills-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.skills-wrapper span {
+  font-size: 0.9rem;
+  color: rgb(104, 104, 104);
+  background: rgba(255,255,255,0.1);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skills-wrapper span:hover {
+  background: rgba(3, 184, 255, 0.3);
+  color: #0c0c0c;
+}
+
+/* Download button */
+.download-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #505050, #a3f1ff);
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* متن داخل کارت‌ها */
+.glass-item {
+  color: #a7a7a7; /* طوسی */
+  transition: color 0.3s ease;
+}

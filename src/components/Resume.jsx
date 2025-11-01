@@ -1,87 +1,87 @@
 import React from "react";
+import "../resume.css";
 
-export default function Resume() {
+export default function GlassResumeSection() {
   return (
-    <section className="works-section" id="works-section">
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <div className="section-header style-2">
-              <h2 className="section-title wow fadeInUp" data-wow-delay=".4s">
-                Education & Experience
-              </h2>
+    <section className="glass-resume-section" id="resume">
+      <div className="glass-container">
+        <h2 className="glass-section-title"
+            style={{
+              fontFamily: '"Clash Display", sans-serif',
+              fontWeight: 600,
+              fontSize: "2.5rem",
+              color: "#5ffff7ff",
+            }}
+        >Resume</h2>
+
+        <div className="glass-row">
+
+          {/* Education */}
+          <div className="glass-card">
+            <h3 className="glass-card-title">Education</h3>
+            <div className="glass-item">
+         <div className="glass-item">
+  <h4>Associate Degree in IT</h4>
+  <p>Arak university</p>
+  <span>2025</span>
+</div>
+
+<div className="glass-item">
+  <h4>Bachelor's Degree in IT </h4>
+  <p>Arak university</p>
+  <span>2025</span>
+</div>
+
             </div>
           </div>
+
+          {/* Experience */}
+          <div className="glass-card">
+            <h3 className="glass-card-title">Experience</h3>
+            <div className="glass-item">
+              <h4>webnegar Company</h4>
+              <p>Backend developer</p>
+         
+            </div>
+            <div className="glass-item">
+              <h4>    Freelance/ Teamwork.</h4>
+              <p>Backend developer</p>
+         
+            </div>
+            <div className="glass-item">
+              <h4>sitedar  Company</h4>
+              <p>Backend developer</p>
+           
+            </div>
+          </div>
+
+          {/* Skills & Languages */}
+          <div className="glass-card">
+            <h3 className="glass-card-title">Django framework</h3>
+            <div className="skills-wrapper">
+              <span>python</span>
+              <span>Django</span>
+              <span>FastAPI</span>
+              <span>Celery</span>
+              <span>Django Channels</span>
+              <span>ORM</span>
+              <span>Signals</span>
+              <span>Testing</span>
+              <span>Deployment</span>
+              <span>APIs</span>
+              <span>Git</span>
+
+              
+            </div>
+          </div>
+
         </div>
 
-        <div className="row">
-          <div className="col-12">
-            <div className="works-content-area wow fadeInUp" data-wow-delay=".8s">
-              <div className="works-content-item">
-                <h6 className="title">Education</h6>
-                <div className="works-content-box">
-                  <div className="works-item">
-                    <h5 className="title">Bachelor in Design</h5>
-                    <h6 className="sub-title">Product Designer</h6>
-                    <span>Graduated - 2024</span>
-                  </div>
-                  <div className="works-item">
-                    <h5 className="title">UX/UI Design School</h5>
-                    <h6 className="sub-title">Product Designer</h6>
-                    <span>2009 - Graduated</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="works-content-item">
-                <h6 className="title">Experience</h6>
-                <div className="works-content-box">
-                  <div className="works-item">
-                    <h5 className="title">Pegah Company</h5>
-                    <h6 className="sub-title">Product Designer</h6>
-                    <span>2019 - Present</span>
-                  </div>
-                  <div className="works-item">
-                    <h5 className="title">Anvar Studio</h5>
-                    <h6 className="sub-title">Product Designer</h6>
-                    <span>Oct 2021 - Present</span>
-                  </div>
-                  <div className="works-item">
-                    <h5 className="title">TOKO Distributor</h5>
-                    <h6 className="sub-title">Product Designer</h6>
-                    <span>2022 - Present</span>
-                  </div>
-                  <div className="works-item">
-                    <h5 className="title">Sako</h5>
-                    <h6 className="sub-title">Product Designer</h6>
-                    <span>2022 - Present</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="works-content-item">
-                <h6 className="title">Previous Roles</h6>
-                <div className="works-content-box">
-                  <div className="works-item">
-                    <h5 className="title">Pegah Company</h5>
-                    <h6 className="sub-title">Product Designer</h6>
-                    <span>2022 - Present</span>
-                  </div>
-                  <div className="works-item">
-                    <h5 className="title">Anvar Studio</h5>
-                    <h6 className="sub-title">Product Designer</h6>
-                    <span>2022 - Present</span>
-                  </div>
-                  <div className="works-item">
-                    <h5 className="title">TOKO Distributor</h5>
-                    <h6 className="sub-title">Product Designer</h6>
-                    <span>2022 - Present</span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
+        {/* Download Button */}
+        <div className="download-wrapper">
+          <a href="/resume.pdf" download className="download-btn">
+            <i className="fa-solid fa-download"></i> Download Resume
+          </a>
         </div>
       </div>
     </section>

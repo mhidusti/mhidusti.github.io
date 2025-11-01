@@ -85,7 +85,8 @@ export default function PortfolioScroll() {
   };
 
   return (
-    <section className="portfolio-scroll-section">
+<section id="portfolio-scroll-section" className="portfolio-scroll-section">
+
 
 
       <div className="portfolio-scroll-inner" ref={containerRef}>

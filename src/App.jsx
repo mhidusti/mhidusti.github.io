@@ -1,13 +1,10 @@
 import React from "react";
 import { useEffect, useRef } from "react";
-
-import Preloader from "./components/Preloader";
 import BackToTop from "./components/BackToTop";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import Services from "./components/Services";
 import ServicesAlt from "./components/ServicesAlt";
-import ServicePopup from "./components/ServicePopup";
 import ProjectSection from "./components/ProjectSection";
 import Portfolio from "./components/Portfolio";
 import Resume from "./components/Resume";
@@ -90,10 +87,11 @@ export default function App() {
 
         <HeroSection />
         <Services />
-        <ServicesAlt />
-        <ServicePopup />
-        <ProjectSection />
         <Portfolio />
+        <ProjectSection />
+        <ServicesAlt />
+     
+       
         <Resume />
         <Testimonials />
         <ContactSection />

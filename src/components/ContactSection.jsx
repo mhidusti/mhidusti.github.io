@@ -1,84 +1,92 @@
-import React from "react";
+// ContactSection.jsx
+import React, { useState } from "react";
+import "../contact.css";
+
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xovppppg";
 
 export default function ContactSection() {
+  const [form, setForm] = useState({ conName: "", conLName: "", conEmail: "", conPhone: "", conMessage: "" });
+  const [status, setStatus] = useState({ loading: false, ok: null, msg: "" });
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: value }));
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setStatus({ loading: true, ok: null, msg: "" });
+
+    if (!form.conEmail || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.conEmail)) {
+      setStatus({ loading: false, ok: false, msg: "Please enter a valid email." });
+      return;
+    }
+
+    try {
+      const payload = new FormData();
+      payload.append("conName", form.conName);
+      payload.append("conLName", form.conLName);
+      payload.append("conEmail", form.conEmail);
+      payload.append("conPhone", form.conPhone);
+      payload.append("conMessage", form.conMessage);
+
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        body: payload,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        setStatus({ loading: false, ok: true, msg: "Message sent successfully!" });
+        setForm({ conName: "", conLName: "", conEmail: "", conPhone: "", conMessage: "" });
+      } else {
+        const data = await res.json();
+        setStatus({ loading: false, ok: false, msg: data.error || "Failed to send, please try again." });
+      }
+    } catch (err) {
+      setStatus({ loading: false, ok: false, msg: "Error sending message — check your connection." });
+    }
+  }
+
   return (
-    <section className="contact-section style-2" id="contact-section">
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <div className="contact-content-area">
-              <div className="contact-form-box order-2 order-md-1 wow fadeInLeft" data-wow-delay=".3s">
-                <div className="section-header">
-                  <h2 className="section-title">
-                    Let's<br />
-                    Work Together!
-                  </h2>
-                  <p>
-                    I design and code simple and beautiful things — and I love what I do.
-                  </p>
-                </div>
+    <section className="contact-section" id="contact-section">
+      <div className="contact-container">
 
-                <div className="tj-contact-form style-2">
-                  <form id="contact-form">
-                    <div className="form_group">
-                      <input type="text" name="conName" id="conName" placeholder="First Name" autoComplete="off" />
-                    </div>
-                    <div className="form_group">
-                      <input type="text" name="conLName" id="conLName" placeholder="Last Name" autoComplete="off" />
-                    </div>
-                    <div className="form_group">
-                      <input type="email" name="conEmail" id="conEmail" placeholder="Email Address" autoComplete="off" />
-                    </div>
-                    <div className="form_group">
-                      <input type="tel" name="conPhone" id="conPhone" placeholder="Phone" autoComplete="off" />
-                    </div>
-                    <div className="form_group">
-                      <textarea name="conMessage" id="conMessage" placeholder="Message"></textarea>
-                    </div>
-                    <div className="form_btn">
-                      <button type="submit" className="btn tj-btn-primary-2">
-                        Send Message
-                        <span className="icon_box">
-                          <i className="fa-regular fa-arrow-right icon_first"></i>
-                          <i className="fa-regular fa-arrow-right icon_second"></i>
-                        </span>
-                      </button>
-                    </div>
-                  </form>
-                </div>
-
-              </div>
-
-              <div className="contact-info-list-2 order-1 order-md-2">
-                <div className="desc wow fadeInRight" data-wow-delay=".3s">
-                  <p>
-                    I’m currently available for new projects — feel free to send me a message about your project.
-                  </p>
-                </div>
-
-                <ul className="ul-reset contact-info-list-3">
-                  <li className="wow fadeInRight" data-wow-delay=".3s">
-                    <a href="tel:0123456789">+01 123 654 8096</a>
-                  </li>
-                  <li className="wow fadeInRight" data-wow-delay=".4s">
-                    <a href="mailto:mail@mail.com">gerolddesign@mail.com</a>
-                  </li>
-                  <li className="wow fadeInRight" data-wow-delay=".5s">
-                    <p>Gisha Alley 38<br />Madob G St.</p>
-                  </li>
-                </ul>
-
-                <ul className="ul-reset social-icons style-3 wow fadeInRight" data-wow-delay=".6s">
-                  <li><a href="#"><i className="fa-brands fa-twitter"></i></a></li>
-                  <li><a href="#"><i className="fa-light fa-basketball"></i></a></li>
-                  <li><a href="#"><i className="fa-brands fa-linkedin-in"></i></a></li>
-                  <li><a href="#"><i className="fa-brands fa-github"></i></a></li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
+        {/* Form */}
+        <div className="contact-form-box">
+          <h2>Let's Work Together!</h2>
+          <p>I design and code simple, beautiful things — and I love what I do.</p>
+          <form id="contact-form" onSubmit={handleSubmit}>
+            <input type="text" name="conName" value={form.conName} onChange={handleChange} placeholder="First Name" />
+            <input type="text" name="conLName" value={form.conLName} onChange={handleChange} placeholder="Last Name" />
+            <input type="email" name="conEmail" value={form.conEmail} onChange={handleChange} placeholder="Email Address" />
+            <input type="tel" name="conPhone" value={form.conPhone} onChange={handleChange} placeholder="Phone" />
+            <textarea name="conMessage" value={form.conMessage} onChange={handleChange} placeholder="Message" rows={6} />
+            <button type="submit">{status.loading ? "Sending..." : "Send Message"}</button>
+            {status.ok === true && <p className="success-msg">{status.msg}</p>}
+            {status.ok === false && <p className="error-msg">{status.msg}</p>}
+          </form>
         </div>
+
+        {/* Contact Info */}
+        <div className="contact-info">
+          <div className="info-box">
+            <p>I’m currently available for new projects — feel free to send me a message about your project.</p>
+          </div>
+          <ul>
+            <li><a href="tel:+989918139066">+98 991 813 9066</a></li>
+            <li><a href="mailto:mhidusti@gmail.com">mhidusti@gmail.com</a></li>
+
+          </ul>
+          <ul className="social-icons">
+        
+                        <li><a href="https://www.linkedin.com/in/mohadese-doosti-2a8644373/"><i className="fa-brands fa-linkedin-in"></i></a></li>
+                <li><a href="https://github.com/mhidusti"><i className="fa-brands fa-github"></i></a></li>
+                <li><a href="https://t.me/Moadse"><i className="fa-brands fa-telegram"></i></a></li>
+                <li><a href="https://www.instagram.com/mohdse.doosti?igsh=MTQ0aGtnN3p3MTZreg=="><i className="fa-brands fa-instagram"></i></a></li>
+          </ul>
+        </div>
+
       </div>
     </section>
   );

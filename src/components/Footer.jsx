@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="row">
           <div className="col-md-12 text-center">
             <div className="footer-logo-box">
-              <a href="#"><img src="assets/img/logo/logo-dark.png" alt="Logo" /></a>
+      
             </div>
             <div className="footer-menu">
               <nav>
@@ -22,7 +22,7 @@ export default function Footer() {
               </nav>
             </div>
             <div className="copy-text style-2">
-              <p>© All rights reserved <a href="#" target="_blank" rel="noreferrer">Gerold Design</a></p>
+              <p>© All rights reserved <a href="#" target="_blank" rel="noreferrer">mhidusti</a></p>
             </div>
           </div>
         </div>
