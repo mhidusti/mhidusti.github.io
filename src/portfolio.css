@@ -1,11 +1,14 @@
 .portfolio-scroll-section {
   position: relative;
-  height: 100vh;
   background: #ffffff;
-  display: flex;
   align-items: center;
   overflow: hidden;
-  padding: 0 60px;
+  padding: 10px 0px; /* می‌تونی کم و زیاد کنی */
+  height: auto;      /* این مهمه */
+  min-height: 500px; /* برای اینکه خیلی جمع نشه */
+  cursor: grab;
+  user-select: none;
+  scroll-behavior: smooth;
 }
 
 .portfolio-scroll-inner {
@@ -339,5 +342,67 @@
     width: 45px;
     height: 45px;
     font-size: 2rem;
+  }
+}
+/* -------- MOBILE FIX -------- */
+@media (max-width: 768px) {
+  .portfolio-scroll-inner {
+    gap: 18px;
+    padding: 20px 0;
+  }
+
+  .portfolio-card {
+    min-width: 85vw;   /* قبلاً خیلی کم بود → باعث له شدن متن میشد */
+    max-width: 85vw;
+  }
+
+  .portfolio-info h3,
+  .portfolio-info p {
+    text-align: left; /* تا دیگه متن باریک نشه */
+    width: 100%;
+  }
+
+  .portfolio-img-wrapper img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 14px;
+  }
+}
+/* عنوان بالای پروژه‌ها */
+.portfolio-title-box {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 60px auto;
+  text-align: center;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.portfolio-title-box h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #85ffff;
+}
+
+.portfolio-title-box p {
+  font-size: 1.2rem;
+  color: #919191;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+/* ریسپانسیو موبایل */
+@media (max-width: 768px) {
+  .portfolio-title-box {
+    margin-bottom: 35px;
+  }
+  .portfolio-title-box h2 {
+    font-size: 2rem;
+  }
+  .portfolio-title-box p {
+    font-size: 1rem;
   }
 }

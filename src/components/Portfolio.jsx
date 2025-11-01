@@ -85,7 +85,16 @@ export default function PortfolioScroll() {
   };
 
   return (
+
+
 <section id="portfolio-scroll-section" className="portfolio-scroll-section">
+
+  <div className="portfolio-title-box fade-in-top">
+    <h2> Creative Digital Works
+</h2>
+    <p>Some of the projects I’ve crafted with love — blending design, functionality & real business needs.</p>
+  </div>
+
 
 
 
