@@ -1,23 +1,40 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "../services.css";
+import "../custom.css";
+
 export default function ServicesAlt() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,  // مدت زمان انیمیشن‌ها (۱ ثانیه)
+      once: true,      // فقط یک‌بار اجرا میشه
+      offset: 100,     // فاصله تا شروع انیمیشن
+      easing: "ease-out-cubic",
+    });
+  }, []);
+
   return (
-      <section
+    <section
       className="services-section"
       id="services-section"
-      style={{ backgroundColor: "#ffffff" }} // ← اینجا بکگراند سفید شد
+      style={{ backgroundColor: "#ffffff" }}
     >
       <div className="container">
-        <div className="row">
+        <div className="row text-center mb-5">
           <div className="col-md-12">
-            <div className="section-header text-center">
-              <h2 className="section-title wow fadeInUp" data-wow-delay=".3s">
-                My Quality Services
-              </h2>
-              <p className="wow fadeInUp" data-wow-delay=".4s">
-                I offer a range of backend and full-stack services built with Django, Python, and modern web technologies — focusing on performance, scalability, and clean architecture.
-              </p>
-            </div>
+            <h2
+              className="section-title"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              My Quality Services
+            </h2>
+            <p data-aos="fade-up" data-aos-delay="300">
+              I offer a range of backend and full-stack services built with
+              Django, Python, and modern web technologies — focusing on
+              performance, scalability, and clean architecture.
+            </p>
           </div>
         </div>
 
@@ -27,9 +44,9 @@ export default function ServicesAlt() {
 
               {/* Service Item 1 */}
               <div
-                className="service-item current d-flex flex-wrap align-items-center wow fadeInUp"
-                data-wow-delay=".5s"
-            
+                className="service-item d-flex flex-wrap align-items-center current"
+                data-aos="flip-left"
+                data-aos-delay="300"
               >
                 <div className="left-box d-flex flex-wrap align-items-center">
                   <span className="number">01</span>
@@ -37,20 +54,18 @@ export default function ServicesAlt() {
                 </div>
                 <div className="right-box">
                   <p>
-                    I develop powerful backend systems using Django and FastAPI — ensuring your applications are secure, efficient, and built on scalable architecture ready for real-world use.
+                    I develop powerful backend systems using Django and FastAPI —
+                    ensuring your applications are secure, efficient, and built on
+                    scalable architecture ready for real-world use.
                   </p>
                 </div>
-                <button
-                  data-mfp-src="#service-wrapper"
-                  className="service-link modal-popup"
-                ></button>
               </div>
 
               {/* Service Item 2 */}
               <div
-                className="service-item d-flex flex-wrap align-items-center wow fadeInUp"
-                data-wow-delay=".6s"
-            
+                className="service-item d-flex flex-wrap align-items-center"
+                data-aos="zoom-in-up"
+                data-aos-delay="400"
               >
                 <div className="left-box d-flex flex-wrap align-items-center">
                   <span className="number">02</span>
@@ -58,40 +73,39 @@ export default function ServicesAlt() {
                 </div>
                 <div className="right-box">
                   <p>
-                    I build RESTful APIs with Django REST Framework that connect your frontend and backend seamlessly — with clean documentation and high reliability.
+                    I build RESTful APIs with Django REST Framework that connect
+                    your frontend and backend seamlessly — with clean
+                    documentation and high reliability.
                   </p>
                 </div>
-                <button
-                  data-mfp-src="#service-wrapper"
-                  className="service-link modal-popup"
-                ></button>
               </div>
 
               {/* Service Item 3 */}
               <div
-                className="service-item d-flex flex-wrap align-items-center wow fadeInUp"
-                data-wow-delay=".7s"
-           
+                className="service-item d-flex flex-wrap align-items-center"
+                data-aos="fade-right"
+                data-aos-delay="500"
               >
                 <div className="left-box d-flex flex-wrap align-items-center">
                   <span className="number">03</span>
-                  <h3 className="service-title">Database Design & Optimization</h3>
+                  <h3 className="service-title">
+                    Database Design & Optimization
+                  </h3>
                 </div>
                 <div className="right-box">
                   <p>
-                    I design efficient and normalized databases using PostgreSQL and MySQL — focusing on query optimization, indexing, and data consistency for peak performance.
+                    I design efficient and normalized databases using PostgreSQL
+                    and MySQL — focusing on query optimization, indexing, and data
+                    consistency for peak performance.
                   </p>
                 </div>
-                <button
-                  data-mfp-src="#service-wrapper"
-                  className="service-link modal-popup"
-                ></button>
               </div>
 
               {/* Service Item 4 */}
               <div
-                className="service-item d-flex flex-wrap align-items-center wow fadeInUp"
-                data-wow-delay=".8s"
+                className="service-item d-flex flex-wrap align-items-center"
+                data-aos="zoom-out-up"
+                data-aos-delay="600"
               >
                 <div className="left-box d-flex flex-wrap align-items-center">
                   <span className="number">04</span>
@@ -99,18 +113,17 @@ export default function ServicesAlt() {
                 </div>
                 <div className="right-box">
                   <p>
-                    I handle complete deployment processes with Docker, Nginx, and CI/CD pipelines — ensuring stable, scalable, and zero-downtime environments for your projects.
+                    I handle complete deployment processes with Docker, Nginx, and
+                    CI/CD pipelines — ensuring stable, scalable, and zero-downtime
+                    environments for your projects.
                   </p>
                 </div>
-                <button
-                  data-mfp-src="#service-wrapper"
-                  className="service-link modal-popup"
-                ></button>
               </div>
 
               <div
-                className="active-bg wow fadeInUp"
-                data-wow-delay=".5s"
+                className="active-bg"
+                data-aos="fade-up"
+                data-aos-delay="700"
               ></div>
             </div>
           </div>

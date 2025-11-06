@@ -1,0 +1,97 @@
+/* ===============================
+   ✨ AOS Custom Animations
+   =============================== */
+
+/* انیمیشن‌های fade */
+[data-aos="fade-up"] {
+  transform: translateY(40px);
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+[data-aos="fade-up"].aos-animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+[data-aos="fade-right"] {
+  transform: translateX(-40px);
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+[data-aos="fade-right"].aos-animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+[data-aos="fade-left"] {
+  transform: translateX(40px);
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+[data-aos="fade-left"].aos-animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* ===============================
+   💥 Zoom Effects
+   =============================== */
+[data-aos="zoom-in-up"] {
+  transform: scale(0.9) translateY(40px);
+  opacity: 0;
+}
+
+[data-aos="zoom-in-up"].aos-animate {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+[data-aos="zoom-out-up"] {
+  transform: scale(1.1) translateY(40px);
+  opacity: 0;
+}
+
+[data-aos="zoom-out-up"].aos-animate {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* ===============================
+   🔄 Flip Animations (سه‌بعدی)
+   =============================== */
+[data-aos="flip-left"] {
+  transform: rotateY(90deg);
+  opacity: 0;
+  transform-origin: left;
+}
+
+[data-aos="flip-left"].aos-animate {
+  transform: rotateY(0);
+  opacity: 1;
+}
+
+/* ===============================
+   🌈 تنظیمات عمومی برای نرمی بیشتر
+   =============================== */
+[data-aos] {
+  transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1); /* ease */
+  transition-duration: 1s;
+  will-change: transform, opacity;
+}
+
+/* ===============================
+   🪄 افکت ظریف سایه برای المان‌های فعال
+   =============================== */
+.service-item.aos-animate {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-5px);
+  transition: all 0.4s ease;
+}
+
+.service-item.aos-animate:hover {
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px);
+}
