@@ -2,79 +2,8 @@
 import React, { useState } from "react";
 import "../contact.css";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/mldzjqok";
-
 export default function ContactSection() {
-  const [form, setForm] = useState({
-    conName: "",
-    conLName: "",
-    conEmail: "",
-    conPhone: "",
-    conMessage: ""
-  });
-
-  const [status, setStatus] = useState({
-    loading: false,
-    ok: null,
-    msg: ""
-  });
-
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
-  }
-
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setStatus({ loading: true, ok: null, msg: "" });
-
-    // Email Validation
-    if (!form.conEmail || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.conEmail)) {
-      setStatus({ loading: false, ok: false, msg: "Please enter a valid email." });
-      return;
-    }
-
-    try {
-      // Formspree accepted fields: name, email, message
-      const payload = new FormData();
-      payload.append("name", `${form.conName} ${form.conLName}`);
-      payload.append("email", form.conEmail);
-      payload.append(
-        "message",
-        `Phone: ${form.conPhone}\n\nMessage:\n${form.conMessage}`
-      );
-
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        body: payload,
-        headers: { Accept: "application/json" }
-      });
-
-      if (res.ok) {
-        setStatus({ loading: false, ok: true, msg: "Message sent successfully!" });
-        setForm({
-          conName: "",
-          conLName: "",
-          conEmail: "",
-          conPhone: "",
-          conMessage: ""
-        });
-      } else {
-        const data = await res.json();
-        setStatus({
-          loading: false,
-          ok: false,
-          msg: data.error || "Failed to send, please try again."
-        });
-      }
-    } catch (error) {
-      setStatus({
-        loading: false,
-        ok: false,
-        msg: "Error sending message — check your connection."
-      });
-    }
-  }
+  const [sent, setSent] = useState(false);
 
   return (
     <section className="contact-section" id="contact-section">
@@ -85,68 +14,74 @@ export default function ContactSection() {
           <h2>Let's Work Together!</h2>
           <p>I design and code simple, beautiful things — and I love what I do.</p>
 
-          <form id="contact-form" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="conName"
-              value={form.conName}
-              onChange={handleChange}
-              placeholder="First Name"
-            />
+          {!sent ? (
+            <form
+              id="contact-form"
+              action="https://formspree.io/f/mldzjqok"
+              method="POST"
+              onSubmit={() => setSent(true)}
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Contact Form Message"
+              />
 
-            <input
-              type="text"
-              name="conLName"
-              value={form.conLName}
-              onChange={handleChange}
-              placeholder="Last Name"
-            />
+              <input
+                type="hidden"
+                name="_captcha"
+                value="false"
+              />
 
-            <input
-              type="email"
-              name="conEmail"
-              value={form.conEmail}
-              onChange={handleChange}
-              placeholder="Email Address"
-              required
-            />
+              <input
+                type="text"
+                name="name"
+                placeholder="First Name"
+                required
+              />
 
-            <input
-              type="tel"
-              name="conPhone"
-              value={form.conPhone}
-              onChange={handleChange}
-              placeholder="Phone"
-            />
+              <input
+                type="text"
+                name="lastname"
+                placeholder="Last Name"
+              />
 
-            <textarea
-              name="conMessage"
-              value={form.conMessage}
-              onChange={handleChange}
-              placeholder="Message"
-              rows={6}
-            />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                required
+              />
 
-            <button type="submit">
-              {status.loading ? "Sending..." : "Send Message"}
-            </button>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone"
+              />
 
-            {status.ok === true && (
-              <p className="success-msg">{status.msg}</p>
-            )}
+              <textarea
+                name="message"
+                placeholder="Message"
+                rows={6}
+                required
+              ></textarea>
 
-            {status.ok === false && (
-              <p className="error-msg">{status.msg}</p>
-            )}
-          </form>
+              <button type="submit">Send Message</button>
+            </form>
+          ) : (
+            <p className="success-msg" style={{ marginTop: 20 }}>
+              Your message has been sent successfully! ✔️  
+              <br />I will contact you soon.
+            </p>
+          )}
         </div>
 
         {/* Contact Info */}
         <div className="contact-info">
           <div className="info-box">
             <p>
-              I’m currently available for new projects — feel free to send me a message
-              about your project.
+              I’m currently available for new projects — feel free to send me a
+              message about your project.
             </p>
           </div>
 
