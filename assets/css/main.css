@@ -54,34 +54,46 @@ body {
   /* ----------------------------------
    @color declaration
   ------------------------------------ */
-  --tj-body: #ffffffda;
+
+  color-scheme: light;
+
+  --tj-body: rgba(255, 255, 255, 0.85);
   --tj-white: #979998;
   --tj-off-white: #808080;
   --tj-black: #b6e3ff;
   --tj-black-2: #c0c0c0;
   --tj-black3: #c4fbff;
   --tj-black4: #919191;
+
   --tj-heading-primary: #7a7a7a;
   --tj-heading-secondary: #808080;
-  --tj-theme-primary: #8effffd2;
+
+  --tj-theme-primary: rgba(142, 255, 255, 0.82); /* آبی اصلی */
   --tj-theme-primary-1: #000000;
   --tj-theme-primary-2: #b4b4b4;
   --tj-theme-primary-3: #a9ffec;
+
   --tj-theme-secondary: #616161;
+
   --tj-theme-accent-1: #dddddd;
   --tj-theme-accent-2: #535353;
+
   --tj-grey-1: #747779;
   --tj-grey-2: #6b6b6b;
   --tj-grey-3: #a3a3a3;
   --tj-grey-4: #22272c;
   --tj-grey-5: #636363;
   --tj-grey-6: #1b262e;
+
   --tj-bg: #0c1115;
   --tj-bg-2: #0e1418;
   --tj-bg-3: #10171c;
   --tj-bg-4: #151b1f;
+
   --tj-border: #1b2227;
   --tj-border1: #aaaaaa;
+
+
   /* ----------------------------------
    @font weight declaration
   ------------------------------------ */
