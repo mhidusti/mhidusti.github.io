@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "../contact.css";
 
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xovppppg";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mldzjqok";
 
 export default function ContactSection() {
   const [form, setForm] = useState({
