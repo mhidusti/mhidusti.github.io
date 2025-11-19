@@ -5,6 +5,23 @@ import "../contact.css";
 export default function ContactSection() {
   const [sent, setSent] = useState(false);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    // ارسال فرم واقعی به Getform
+    fetch("https://getform.io/f/anlnrwoa", {
+      method: "POST",
+      body: new FormData(form),
+    })
+      .then(() => setSent(true))
+      .catch((err) => {
+        alert("Error sending message. Please try again.");
+        console.error(err);
+      });
+  };
+
   return (
     <section className="contact-section" id="contact-section">
       <div className="contact-container">
@@ -15,17 +32,10 @@ export default function ContactSection() {
           <p>I design and code simple, beautiful things — and I love what I do.</p>
 
           {!sent ? (
-            <form
-              id="contact-form"
-              action="https://formspree.io/f/mldzjqok"
-              method="POST"
-              onSubmit={() => setSent(true)}
-            >
-              {/* Hidden inputs required by Formspree */}
-              <input type="hidden" name="_subject" value="New Contact Message" />
-              <input type="hidden" name="_captcha" value="false" />
+            <form onSubmit={handleSubmit}>
+              <input type="hidden" name="_gotcha" style={{ display: "none" }} />
 
-              {/* Name fields */}
+              {/* First & Last Name */}
               <input
                 type="text"
                 name="firstName"
