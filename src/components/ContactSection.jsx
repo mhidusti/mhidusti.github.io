@@ -21,31 +21,25 @@ export default function ContactSection() {
               method="POST"
               onSubmit={() => setSent(true)}
             >
-              <input
-                type="hidden"
-                name="_subject"
-                value="New Contact Form Message"
-              />
+              {/* Formspree required hidden inputs */}
+              <input type="hidden" name="_subject" value="New Contact Message" />
+              <input type="hidden" name="_captcha" value="false" />
 
-              <input
-                type="hidden"
-                name="_captcha"
-                value="false"
-              />
-
+              {/* Name fields */}
               <input
                 type="text"
-                name="name"
+                name="firstName"
                 placeholder="First Name"
                 required
               />
-
               <input
                 type="text"
-                name="lastname"
+                name="lastName"
                 placeholder="Last Name"
+                required
               />
 
+              {/* Email */}
               <input
                 type="email"
                 name="email"
@@ -53,15 +47,17 @@ export default function ContactSection() {
                 required
               />
 
+              {/* Optional Phone */}
               <input
                 type="tel"
                 name="phone"
-                placeholder="Phone"
+                placeholder="Phone (optional)"
               />
 
+              {/* Message */}
               <textarea
                 name="message"
-                placeholder="Message"
+                placeholder="Your Message"
                 rows={6}
                 required
               ></textarea>
@@ -70,7 +66,7 @@ export default function ContactSection() {
             </form>
           ) : (
             <p className="success-msg" style={{ marginTop: 20 }}>
-              Your message has been sent successfully! ✔️  
+              Your message has been sent successfully! ✔  
               <br />I will contact you soon.
             </p>
           )}
@@ -91,29 +87,10 @@ export default function ContactSection() {
           </ul>
 
           <ul className="social-icons">
-            <li>
-              <a href="https://www.linkedin.com/in/mohadese-doosti-2a8644373/">
-                <i className="fa-brands fa-linkedin-in"></i>
-              </a>
-            </li>
-
-            <li>
-              <a href="https://github.com/mhidusti">
-                <i className="fa-brands fa-github"></i>
-              </a>
-            </li>
-
-            <li>
-              <a href="https://t.me/Moadse">
-                <i className="fa-brands fa-telegram"></i>
-              </a>
-            </li>
-
-            <li>
-              <a href="https://www.instagram.com/mohdse.doosti?igsh=MTQ0aGtnN3p3MTZreg==">
-                <i className="fa-brands fa-instagram"></i>
-              </a>
-            </li>
+            <li><a href="https://www.linkedin.com/in/mohadese-doosti-2a8644373/"><i className="fa-brands fa-linkedin-in"></i></a></li>
+            <li><a href="https://github.com/mhidusti"><i className="fa-brands fa-github"></i></a></li>
+            <li><a href="https://t.me/Moadse"><i className="fa-brands fa-telegram"></i></a></li>
+            <li><a href="https://www.instagram.com/mohdse.doosti?igsh=MTQ0aGtnN3p3MTZreg=="><i className="fa-brands fa-instagram"></i></a></li>
           </ul>
         </div>
 
