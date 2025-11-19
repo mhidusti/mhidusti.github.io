@@ -21,7 +21,7 @@ export default function ContactSection() {
               method="POST"
               onSubmit={() => setSent(true)}
             >
-              {/* Formspree required hidden inputs */}
+              {/* Hidden inputs required by Formspree */}
               <input type="hidden" name="_subject" value="New Contact Message" />
               <input type="hidden" name="_captcha" value="false" />
 
